@@ -1,11 +1,15 @@
-import {compose} from 'redux';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const multiplyByTwo = x => x * 2
-const addTwo = x => x + 2
-const result = compose(multiplyByTwo, addTwo)(10);
-console.log(result);
+import Title from './Title';
 
-const root = document.createElement('h1');
-root.innerHTML = 'Hello'
+const App = () => (
+    <div>
+        <Title/>
+    </div>
+);
 
-document.body.appendChild(root);
+ReactDOM.render(
+    <App/>,
+    document.body
+);

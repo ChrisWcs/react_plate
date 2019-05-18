@@ -4,12 +4,25 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
-  mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.(jsx|js)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   plugins: [
     new CleanWebpackPlugin(),
-      new HtmlWebpackPlugin({
-          title: 'Output Management'
-      })
+    new HtmlWebpackPlugin({
+      title: 'Output Management'
+    })
   ],
   devServer: {
     contentBase: './dist'
