@@ -1,0 +1,1 @@
+export const addTwo = (x, y) => x + y
